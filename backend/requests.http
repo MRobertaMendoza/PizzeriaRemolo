@@ -1,0 +1,115 @@
+###CATEGORIAS
+
+
+### get all
+GET http://localhost:3000/api/categorias HTTP/1.1
+//Content-Type: application/json
+
+### get One
+GET http://localhost:3000/api/categorias/6211816aafce1a3ee137debc HTTP/1.1
+
+### create
+POST http://localhost:3000/api/categorias HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Bebidas",
+    "img": "../backend/src/assets/logo.png"
+}
+
+### update
+PUT http://localhost:3000/api/categorias/6238bb8aef039b2c9461bb41 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Pizzas",
+    "img": "../backend/src/assets/pizzas.png"
+}
+
+### Delete
+DELETE  http://localhost:3000/api/categorias/623a05a40bc1d0ca39a9d128 HTTP/1.1
+
+
+###PRODUCTOS
+### create
+POST http://localhost:3000/api/productos HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Helado",
+    "precio": 190,
+    "img": "../backend/src/assets/helado.png",
+    "descripcion": "El mejor helado. Varios sabores!!",
+    "categoria": "6228cf495e4784674d07c09f",
+    "medida": "2 bochas"
+}
+
+### get all
+GET http://localhost:3000/api/productos HTTP/1.1
+//Content-Type: application/json
+    
+### get One
+GET http://localhost:3000/api/productos/6238bcd7ef039b2c9461bb53 HTTP/1.1
+
+### update
+PUT http://localhost:3000/api/productos/623a048d0bc1d0ca39a9d121 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nombre": "Pizza de Hongos",
+    "precio": 1300,
+    "img": "../backend/src/assets/hongos.png",
+    "descripcion": "Pizza de Hongos",
+    "medida": "8 porciones", 
+    "categoria": "6238bb8aef039b2c9461bb41"
+
+}
+
+### Delete
+DELETE  http://localhost:3000/api/productos/623a084f0bc1d0ca39a9d153 HTTP/1.1
+
+
+###PEDIDOS
+### Create
+POST http://localhost:3000/api/pedidos HTTP/1.1
+Content-Type: application/json
+
+{
+    "detalle": [
+        {"producto": "623a06410bc1d0ca39a9d12f", "cantidad": 12},
+        {"producto": "623a05940bc1d0ca39a9d126", "cantidad": 3},
+        {"producto": "623a06790bc1d0ca39a9d133", "cantidad": 3},
+        {"producto": "623a055b0bc1d0ca39a9d124", "cantidad": 3}
+        ],
+    "precioTotal":2323,
+    "nombre": "Christian",
+    "direccion": "Calle abc",
+    "telefono": "111133335555",
+    "nota": "prueba de pedidos"
+}
+
+### get all
+GET http://localhost:3000/api/pedidos/ HTTP/1.1
+
+### get One
+GET http://localhost:3000/api/pedidos/6238bda7ef039b2c9461bb69 HTTP/1.1
+
+
+### update
+PUT http://localhost:3000/api/pedidos/6238bda7ef039b2c9461bb69 HTTP/1.1
+Content-Type: application/json
+
+{
+    "detalle": [
+        {"producto": "6238bcd7ef039b2c9461bb53", "cantidad": 1},
+        {"producto": "6228c3595f58d27d7b093d8e", "cantidad": 3}
+        ],
+    "precioTotal":2323,
+    "nombre": "Christian",
+    "direccion": "Calle abc",
+    "telefono": "111133335555",
+    "nota": "prueba de pedidos"
+}
+
+### delete
+DELETE  http://localhost:3000/api/pedidos/6238bda7ef039b2c9461bb69 HTTP/1.1
